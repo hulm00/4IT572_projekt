@@ -22,8 +22,8 @@ jobs:
       - attach_workspace:
           at: .
       - run: pip3 install ansible boto boto3
-      - run: chmod 400 ansible.pem
-      - run: ansible-playbook ./ansible/ec2deploy.yml --user ubuntu --key-file ../ansible.pem
+      - run: chmod 400 presentation.pem
+      - run: ansible-playbook ./ansible/ec2deploy.yml --user ubuntu --key-file ../presentation.pem
 
 workflows:
   version: 2.1
