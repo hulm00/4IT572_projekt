@@ -21,18 +21,6 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - copy:
-          src: /ansible/ec2_deploy.yaml
-          dest: /home/circleci/
-          owner: foo
-          group: foo
-          mode: '0644'    
-      - copy:
-          src: /ansible/ansible.pem
-          dest: /home/circleci/
-          owner: foo
-          group: foo
-          mode: '0644'
       - run: pip3 install ansible boto boto3
       - run: chmod 400 ./ansible.pem
       - run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./ansible/ec2_deploy.yaml --user ubuntu --key-file ../ansible.pem
