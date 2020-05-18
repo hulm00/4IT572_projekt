@@ -3,14 +3,6 @@
   connection: local
   
   tasks:
-    - name: Copy  
-      copy:
-         src: ./ansible/ansible.pem
-         dest: /home/circleci/
-         owner: foo
-         group: foo
-         mode: '0644'
-
     - name: Launch EC2 instance
       ec2: 
         instance_type: t2.micro
