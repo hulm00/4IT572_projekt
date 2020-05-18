@@ -23,7 +23,7 @@ jobs:
           at: .
       - run: pip3 install ansible boto boto3
       - run: chmod 400 ./ansible/ansible.pem
-      - run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./ansible/ec2_deploy.yaml --user ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --key-file ../ansible/ansible.pem
+      - run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./ansible/ec2_deploy.yaml --user ubuntu --key-file ../ansible/ansible.pem
 
 workflows:
   version: 2.1
