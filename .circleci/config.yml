@@ -21,7 +21,7 @@ jobs:
     steps:
       - add_ssh_keys:
          fingerprints:
-           - "MD5:88:1a:20:8c:04:7f:36:ac:f7:71:55:a3:c9:49:b8:68"
+           - "88:1a:20:8c:04:7f:36:ac:f7:71:55:a3:c9:49:b8:68"
       - attach_workspace:
           at: .
       - run: pip3 install ansible boto boto3
