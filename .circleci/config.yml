@@ -21,11 +21,9 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - add_ssh_keys:
-         fingerprints:
-           - "88:1a:20:8c:04:7f:36:ac:f7:71:55:a3:c9:49:b8:68"
       - run: pip3 install ansible boto boto3
-      - run: ansible-playbook ./ansible/ec2_deploy.yaml --ssh-common-args='-o StrictHostKeyChecking=no' --user ubuntu
+      - run: chmod 400 ./ansible/ansible.pem
+      - run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./ansible/ec2_deploy.yaml --user ubuntu --key-file ../ansible.pem
 
 workflows:
   version: 2.1
