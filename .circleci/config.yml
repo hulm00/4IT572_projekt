@@ -14,7 +14,7 @@ jobs:
       - persist_to_workspace:
          root: .
          paths:
-            - ansible
+            - .
   deploy:
     docker:
       - image: circleci/python:3.7.7
@@ -22,8 +22,8 @@ jobs:
       - attach_workspace:
           at: .
       - run: pip3 install ansible boto boto3
-      - run: chmod 400 ./ansible/ansible.pem
-      - run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./ansible/ec2_deploy.yaml --user ubuntu --key-file ../ansible/ansible.pem
+      - run: chmod 400 ./ansible.pem
+      - run: ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./ansible/ec2_deploy.yaml --user ubuntu --key-file ../ansible.pem
 
 workflows:
   version: 2.1
